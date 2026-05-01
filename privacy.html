@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — SHAKE</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #0f0f0f; --surface: #1a1a1a; --accent: #16a34a; --text: #f0f0f0; --muted: #888; --border: #2a2a2a; --max: 820px; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.8; }
+
+    nav { position: sticky; top: 0; background: rgba(15,15,15,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); z-index: 100; }
+    .nav-inner { max-width: var(--max); margin: auto; padding: 0 1.5rem; display: flex; align-items: center; gap: 1.5rem; height: 56px; }
+    .nav-logo { font-weight: 800; color: var(--accent); text-decoration: none; margin-right: auto; }
+    nav a.nav-link { color: var(--muted); text-decoration: none; font-size: .9rem; }
+    nav a.nav-link:hover { color: var(--text); }
+    .lang-toggle { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .lang-toggle button { background: none; border: none; color: var(--muted); padding: .3rem .7rem; font-size: .82rem; cursor: pointer; font-family: inherit; }
+    .lang-toggle button.active { background: var(--accent); color: #fff; }
+
+    [data-lang] { display: none; }
+    body.en [data-lang="en"] { display: block; }
+    body.ja [data-lang="ja"] { display: block; }
+
+    .content { max-width: var(--max); margin: auto; padding: 3rem 1.5rem 5rem; }
+    .label { font-size: .8rem; font-weight: 700; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; margin-bottom: 1.5rem; display: block; }
+    h1 { font-size: 2rem; font-weight: 900; margin-bottom: .8rem; }
+    .updated { color: var(--muted); font-size: .88rem; margin-bottom: 3rem; display: block; }
+    h2 { font-size: 1.15rem; font-weight: 800; margin: 2.5rem 0 .7rem; border-left: 3px solid var(--accent); padding-left: .75rem; }
+    p { margin-bottom: .9rem; color: #ccc; }
+    p strong { color: var(--text); }
+    ul { margin: .5rem 0 .9rem 1.4rem; color: #ccc; }
+    ul li { margin-bottom: .3rem; }
+    a { color: var(--accent); }
+    code { background: var(--surface); padding: .1rem .4rem; border-radius: 4px; font-size: .88em; }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; color: var(--muted); font-size: .85rem; }
+    footer a { color: var(--muted); }
+    footer a[data-lang] { display: none; }
+    body.en footer a[data-lang="en"],
+    body.ja footer a[data-lang="ja"] { display: inline; }
+  </style>
+</head>
+<body class="en">
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">SHAKE</a>
+    <a class="nav-link" href="index.html" data-lang="en">← Back to Support</a>
+    <a class="nav-link" href="index.html" data-lang="ja">← サポートに戻る</a>
+    <div class="lang-toggle" style="margin-left:auto;">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+    </div>
+  </div>
+</nav>
+
+<div class="content">
+  <span class="label">Legal</span>
+
+  <!-- ENGLISH -->
+  <div data-lang="en">
+    <h1>Privacy Policy</h1>
+    <span class="updated">Last updated: May 1, 2026</span>
+
+    <h2>1. Overview</h2>
+    <p>This Privacy Policy describes how OFFICEES LLC ("we," "us," or "our") handles information in connection with the <strong>SHAKE - World Quake Scale</strong> mobile application for iOS and Android ("the App").</p>
+    <p>SHAKE measures the force of your phone shake, converts it to Seismic Intensity (Japan) or MMI (international), and submits your score, nickname, and country code to a global ranking. This page explains exactly what is collected, what is not, and which third-party services are involved.</p>
+
+    <h2>2. Accelerometer Use</h2>
+    <p>The App uses your device's <strong>accelerometer (motion sensor) solely to measure shake force (m/s²) in real time</strong>. Raw sensor data is <strong>never recorded, stored, or transmitted</strong>. Only the calculated score (top-5-second average out of 10 seconds) is retained from each session.</p>
+    <p>No special permission is required to access the accelerometer on iOS or Android. The App does not use the gyroscope, GPS, microphone, camera, or any other sensor.</p>
+
+    <h2>3. Data Submitted to Our Server</h2>
+    <p>When you complete a measurement, the following information is sent to our backend (powered by <strong>Supabase</strong>) and made publicly visible on the leaderboard:</p>
+    <ul>
+      <li>Your 6-character nickname (A-Z / 0-9, chosen by you)</li>
+      <li>Shake score — average m/s² of top 5 seconds out of 10-second measurement</li>
+      <li>ISO 3166-1 alpha-2 country code and country name</li>
+      <li>UTC timestamp of submission</li>
+    </ul>
+    <p>We do <strong>not</strong> attach any account, email, phone number, or device identifier to this submission. See <a href="https://supabase.com/privacy" target="_blank">Supabase's Privacy Policy</a>.</p>
+
+    <h2>4. Country Detection from IP Address</h2>
+    <p>To determine your country flag, the App sends a request to <a href="https://ip-api.com/" target="_blank">ip-api.com</a>. Only the resulting <strong>country code and country name</strong> are stored — your IP address itself is not retained by us. The App does <strong>not</strong> use GPS or any other location services.</p>
+
+    <h2>5. Analytics (Firebase Analytics)</h2>
+    <p>The App uses <strong>Google Firebase Analytics</strong> to understand aggregate usage. Events collected:</p>
+    <ul>
+      <li><code>shake_completed</code> — measurement submitted (nickname, m/s², intensity, country, ranks)</li>
+      <li><code>ranking_viewed</code> — ranking screen opened</li>
+      <li><code>try_again</code> — TRY AGAIN tapped</li>
+      <li><code>screen_view</code> — automatic screen navigation event</li>
+    </ul>
+    <p>Firebase may also collect device model, OS version, language, and a randomly generated app instance ID. None of this is linked to personal identity. See <a href="https://firebase.google.com/support/privacy" target="_blank">Google's Privacy & Terms</a>.</p>
+
+    <h2>6. Advertising (Google AdMob)</h2>
+    <p>The App displays advertisements served by <strong>Google AdMob</strong>. AdMob may collect the Advertising Identifier (IDFA on iOS / Advertising ID on Android), coarse device information, and ad interaction data.</p>
+    <p>On iOS, the App requests permission via the App Tracking Transparency (ATT) framework. You may decline; ads will still be shown in a non-personalized form. See <a href="https://policies.google.com/technologies/ads" target="_blank">Google Ads & Privacy</a>.</p>
+
+    <h2>7. What the App Does Not Collect</h2>
+    <p>The App does <strong>not</strong> collect:</p>
+    <ul>
+      <li>Microphone or audio data of any kind</li>
+      <li>GPS or precise location</li>
+      <li>Raw accelerometer waveform data</li>
+      <li>Contacts, photos, calendar, or other on-device user data</li>
+      <li>Email address, phone number, or account credentials</li>
+    </ul>
+
+    <h2>8. Support Contact Form</h2>
+    <p>This website uses <strong>Formspree</strong> to deliver contact form submissions. Your name, email, and message are sent through Formspree to us. See <a href="https://formspree.io/legal/privacy-policy" target="_blank">Formspree's Privacy Policy</a>.</p>
+
+    <h2>9. App Stores</h2>
+    <p>The App is distributed through Apple's App Store and Google Play. These platforms may collect information per <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a> and <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+
+    <h2>10. Children's Privacy</h2>
+    <p>The App is rated for general audiences. We do not knowingly collect personal information from children under 13. The nickname is restricted to 6 alphanumeric characters.</p>
+
+    <h2>11. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Material changes will be reflected with an updated "Last updated" date.</p>
+
+    <h2>12. Contact</h2>
+    <p><strong>OFFICEES LLC</strong><br><a href="index.html#contact">Support contact form</a></p>
+  </div>
+
+  <!-- JAPANESE -->
+  <div data-lang="ja">
+    <h1>プライバシーポリシー</h1>
+    <span class="updated">最終更新日：2026年5月1日</span>
+
+    <h2>1. 概要</h2>
+    <p>本プライバシーポリシーは、OFFICEES LLC（以下「当社」）が iOS / Android 向けアプリケーション <strong>SHAKE - World Quake Scale</strong>（以下「本アプリ」）に関連して情報をどのように取り扱うかを説明するものです。</p>
+    <p>本アプリは、スマホを振る力を計測し、震度（日本）またはMMI（海外）に換算してニックネーム・国コードとともに世界ランキングに登録します。</p>
+
+    <h2>2. 加速度センサーの使用</h2>
+    <p>本アプリは、<strong>振る力（m/s²）をリアルタイムに計測する目的のみ</strong>でデバイスの加速度センサーを使用します。センサーの生データは<strong>一切記録・保存・送信されません</strong>。計測のたびに保持されるのは、10秒間のうち上位5秒の平均値のみです。</p>
+    <p>加速度センサーへのアクセスに特別な権限許可は不要です。ジャイロスコープ・GPS・マイク・カメラなどその他のセンサーは使用しません。</p>
+
+    <h2>3. サーバーに送信される情報</h2>
+    <p>計測が完了したとき、以下の情報が当社のバックエンド（<strong>Supabase</strong>）に送信され、ランキング上に公開されます。</p>
+    <ul>
+      <li>ホーム画面で入力した6文字ニックネーム（A-Z / 0-9）</li>
+      <li>シェイクスコア（10秒計測のうち上位5秒の平均m/s²値）</li>
+      <li>ISO 3166-1 alpha-2 国コードおよび国名</li>
+      <li>送信時刻（UTC）</li>
+    </ul>
+    <p>アカウント情報・メールアドレス・電話番号・デバイス識別子は<strong>一切付与されません</strong>。詳細は<a href="https://supabase.com/privacy" target="_blank">Supabaseのプライバシーポリシー</a>をご参照ください。</p>
+
+    <h2>4. IPアドレスによる国判定</h2>
+    <p>スコア横に表示する国旗を決定するため、本アプリは第三者IP判定サービス（<a href="https://ip-api.com/" target="_blank">ip-api.com</a>）にリクエストを送信します。当社サーバーに保存されるのは判定結果の<strong>国コードと国名のみ</strong>で、IPアドレス自体は保持しません。本アプリはGPSなどの位置情報サービスを<strong>一切使用しません</strong>。</p>
+
+    <h2>5. アナリティクス（Firebase Analytics）</h2>
+    <p>本アプリは利用状況の集計のため <strong>Google Firebase Analytics</strong> を使用します。収集するイベント：</p>
+    <ul>
+      <li><code>shake_completed</code> — 計測完了時（ニックネーム・m/s²・震度・国コード・順位）</li>
+      <li><code>ranking_viewed</code> — ランキング画面を開いたとき</li>
+      <li><code>try_again</code> — 「TRY AGAIN」をタップしたとき</li>
+      <li><code>screen_view</code> — 画面遷移の自動イベント</li>
+    </ul>
+    <p>Firebaseは加えて、端末モデル・OSバージョン・言語・ランダム生成のアプリインスタンスIDなどを自動収集する場合があります。いずれも個人を特定する情報には紐づけません。詳細は<a href="https://firebase.google.com/support/privacy" target="_blank">Googleプライバシーと規約</a>をご参照ください。</p>
+
+    <h2>6. 広告（Google AdMob）</h2>
+    <p>本アプリは <strong>Google AdMob</strong> による広告を表示します。AdMobは広告識別子（iOSはIDFA、AndroidはAdvertising ID）・概略のデバイス情報・広告インタラクション情報などを収集する場合があります。</p>
+    <p>iOSではApp Tracking Transparency (ATT) フレームワークによりトラッキングの許可を明示的に求めます。許可しない場合でも非パーソナライズ広告が表示されます。詳細は<a href="https://policies.google.com/technologies/ads" target="_blank">Google広告とプライバシー</a>をご参照ください。</p>
+
+    <h2>7. 本アプリが収集しない情報</h2>
+    <p>本アプリは以下を<strong>一切収集・使用しません</strong>。</p>
+    <ul>
+      <li>マイク・音声データ</li>
+      <li>GPS・詳細な位置情報</li>
+      <li>加速度の生波形データ</li>
+      <li>連絡先・写真・カレンダーなどのデバイス上の利用者データ</li>
+      <li>メールアドレス・電話番号・アカウント認証情報</li>
+    </ul>
+
+    <h2>8. サポートフォームについて</h2>
+    <p>本サポートサイトはお問い合わせフォームの処理に <strong>Formspree</strong> を利用しています。フォーム送信時、お名前・メールアドレス・メッセージが Formspree を通じて当社に届きます。詳細は<a href="https://formspree.io/legal/privacy-policy" target="_blank">Formspreeのプライバシーポリシー</a>をご参照ください。</p>
+
+    <h2>9. アプリストア</h2>
+    <p>本アプリは Apple App Store および Google Play を通じて配信されます。各プラットフォームは<a href="https://www.apple.com/legal/privacy/ja/" target="_blank">Appleのプライバシーポリシー</a>および<a href="https://policies.google.com/privacy?hl=ja" target="_blank">Googleのプライバシーポリシー</a>に従い独自に情報を収集する場合があります。</p>
+
+    <h2>10. 子どものプライバシー</h2>
+    <p>本アプリは全年齢を対象としています。13歳未満のお子様から個人情報を意図的に収集することはありません。ニックネームは英数6文字に制限されており、個人情報を含めないでください。</p>
+
+    <h2>11. ポリシーの変更</h2>
+    <p>本プライバシーポリシーは必要に応じて更新することがあります。重要な変更があった場合は、このページの「最終更新日」を改訂したうえで掲載します。</p>
+
+    <h2>12. お問い合わせ</h2>
+    <p><strong>OFFICEES LLC</strong><br><a href="index.html#contact">サポートお問い合わせフォーム</a></p>
+  </div>
+</div>
+
+<footer>
+  © 2026 OFFICEES LLC &nbsp;·&nbsp;
+  <a href="index.html" data-lang="en">Support Site</a>
+  <a href="index.html" data-lang="ja">サポートサイト</a>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.className = lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ja').classList.toggle('active', lang === 'ja');
+    localStorage.setItem('shake-lang', lang);
+  }
+  const saved = localStorage.getItem('shake-lang');
+  const browserJa = navigator.language.startsWith('ja');
+  if (saved === 'ja' || (!saved && browserJa)) setLang('ja');
+</script>
+</body>
+</html>
